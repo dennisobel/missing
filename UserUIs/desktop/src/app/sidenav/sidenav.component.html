@@ -1,0 +1,16 @@
+<md-sidenav-container class="example-container">
+	<md-sidenav color="primary" class="example-sidenav">		
+	</md-sidenav>
+	<div class="listcontainer">
+		<md-list>
+			<md-list-item *ngFor="let buttons of sidenav" class="list">
+				
+				<button 
+					md-button 
+					color="accent" routerLink={{buttons.value}}>
+					{{buttons.viewValue}}
+				</button>
+			</md-list-item>
+		</md-list>
+	</div>
+</md-sidenav-container>

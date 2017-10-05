@@ -1,0 +1,153 @@
+<md-card>
+<md-accordion class="example-headers-align">
+  <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+    <md-expansion-panel-header>
+      <md-panel-title>
+        Personal data
+      </md-panel-title>
+      <md-panel-description>
+        Name, Age, Bio
+        <!--<md-icon>account_circle</md-icon>-->
+      </md-panel-description>
+    </md-expansion-panel-header>
+    <tr>
+    	<td>
+		    <md-form-field class="example-full-width">
+		      <input mdInput id="vfname" placeholder="First name">
+		    </md-form-field>
+		</td>
+		<td>
+			<md-form-field class="example-full-width">
+		      <input mdInput id="vmname" placeholder="Middle Name">
+		    </md-form-field>
+	    </td>
+		<td>
+			<md-form-field class="example-full-width">
+		      <input mdInput id="vlname" placeholder="Last Name">
+		    </md-form-field>
+	    </td>
+    </tr>
+    
+    <tr>
+	    <md-form-field>
+      		<input mdInput id="vdob" placeholder="Date Of Birth" [mdDatepicker]="picker" (focus)="picker.open()" readonly>
+    	</md-form-field>
+    	<md-datepicker #picker></md-datepicker>
+    </tr>
+    <hr>
+    <label>Bloodtype</label>
+    <select id="vbtype" class="form-control" style="font-size: 1.1rem">
+  	  <option *ngFor="let crip of bloodtypes">
+  	    {{crip.type}}
+  	  </option>
+	 </select>
+
+    <md-action-row>
+      <button md-button color="primary" (click)="nextStep()">Next</button>
+    </md-action-row>
+  </md-expansion-panel>
+
+  <md-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+    <md-expansion-panel-header>
+      <md-panel-title>
+        Parents/Guardian
+      </md-panel-title>
+      <md-panel-description>
+        Father/Mother/Guardian/Sibling...
+        <!--<md-icon>map</md-icon>-->
+      </md-panel-description>
+    </md-expansion-panel-header>
+
+    <table class="example-full-width" cellspacing="1">
+		<tr>
+			<h4>Name</h4>
+		    <td>
+			    <md-form-field class="example-full-width">
+			      <input id="pfname" mdInput placeholder="First name">
+			    </md-form-field>
+			</td>
+			<td>
+				<md-form-field class="example-full-width">
+			      <input id="pmname" mdInput placeholder="Middle Name">
+			    </md-form-field>
+		    </td>
+			<td>
+				<md-form-field class="example-full-width">
+			      <input id="plname" mdInput placeholder="Last Name">
+			    </md-form-field>
+		    </td>
+	  	</tr>
+	  	<tr>
+	  		<h4>Contacts</h4>
+	  		<td>
+				<md-form-field class="example-full-width">
+			      <input id="pemail" mdInput type="email" placeholder="Email">
+			    </md-form-field>
+		    </td>
+			<td>
+				<md-form-field class="example-full-width">
+			      <input id="pmobile" mdInput type="tel" placeholder="Phonenumber">
+			    </md-form-field>
+		    </td>
+	  	</tr>
+	  	<tr>
+	  		<td>
+          <label>Relation</label>
+	  			<select id="prel" class="form-control" style="font-size: 1.1rem">
+				  <option class="example-radio-button" *ngFor="let rel of relation" [value]="rel">
+				    {{rel}}
+				  </option>
+				</select>
+	  		</td>
+	  	</tr>
+	</table>
+
+    <md-action-row>
+      <button md-button color="warn" (click)="prevStep()">Previous</button>
+      <button md-button color="primary" (click)="nextStep()">Next</button>
+    </md-action-row>
+  </md-expansion-panel>
+
+  <md-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+    <md-expansion-panel-header>
+      <md-panel-title>
+        More
+      </md-panel-title>
+      <md-panel-description>
+        Image, Last Seen
+        <!--<md-icon>date_range</md-icon>-->
+      </md-panel-description>
+    </md-expansion-panel-header>
+
+    <table class="example-full-width" cellspacing="1">
+    	<tr>
+    		<td>
+    			<md-form-field class="example-full-width">
+			      <input id="vlseen" mdInput placeholder="Last Seen">
+			    </md-form-field>
+    		</td>
+    	</tr>   
+    	<tr>
+    		<td>
+    			<div>
+			    	<p>Profile Image Upload</p>
+					<input id="vprof" type="file"/>
+				</div>
+    		</td>
+    	</tr>	
+    </table>
+    
+
+    <md-action-row>
+      <button md-button color="warn" (click)="prevStep()">Previous</button>
+      <button md-button color="primary" (click)="nextStep()">End</button>
+    </md-action-row>
+  </md-expansion-panel>
+
+</md-accordion>
+
+<hr>
+
+<button md-raised-button color="accent" (click)="onSubmit()">Submit</button>
+
+</md-card>

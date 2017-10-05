@@ -1,0 +1,17 @@
+<md-list>
+	<md-card *ngFor="let person of person" (click)="onClick()">
+		<md-list-item>
+			<tr>
+				<td>
+					<img src={{person.Picture}}>
+				</td>
+				<td>
+					<p>Name: {{person.Name}}</p>
+					<p>D.O.B: {{person.DOB}}</p>
+					<p>Last Seen: {{person.LastSeen}}</p>
+				</td>
+			</tr>
+		</md-list-item>
+	</md-card>
+
+</md-list>
