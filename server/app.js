@@ -15,6 +15,10 @@ mongoose.connect('mongodb://dennisobel:SleepyeyeS2017@ds141524.mlab.com:41524/mi
   console.log('Contected to mongodb...');
 });
 
+// mongoose.connect('mongodb://localhost:27017/missingpersons', () => {
+//   console.log('Contected to mongodb...');
+// });
+
 var conn = mongoose.connection;
 var gfs = Grid(conn.db)
 
